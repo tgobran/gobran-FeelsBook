@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">gobran-FeelsBook</string>
+    <string name="main_menu_hint">PRESS EMOTION TO RECORD</string>
 </resources>
