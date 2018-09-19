@@ -6,4 +6,79 @@
     android:layout_height="match_parent"
     tools:context=".StatisticsActivity">
 
+    <TextView
+        android:id="@+id/statistics.Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/statisticsActivity.Display.Description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/statistics.LoveCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statisticsActivity.Display.LoveCount"
+        app:layout_constraintBottom_toTopOf="@+id/statistics.FearCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.Description" />
+
+    <TextView
+        android:id="@+id/statistics.JoyCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statisticsActivity.Display.JoyCount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.SupriseCount" />
+
+    <TextView
+        android:id="@+id/statistics.SupriseCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statisticsActivity.Display.SupriseCount"
+        app:layout_constraintBottom_toTopOf="@+id/statistics.JoyCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.AngerCount" />
+
+    <TextView
+        android:id="@+id/statistics.AngerCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statisticsActivity.Display.AngerCount"
+        app:layout_constraintBottom_toTopOf="@+id/statistics.SupriseCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.SadnessCount" />
+
+    <TextView
+        android:id="@+id/statistics.SadnessCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statisticsActivity.Display.SadnessCount"
+        app:layout_constraintBottom_toTopOf="@+id/statistics.AngerCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.FearCount" />
+
+    <TextView
+        android:id="@+id/statistics.FearCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statisticsActivity.Display.FearCount"
+        app:layout_constraintBottom_toTopOf="@+id/statistics.SadnessCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.LoveCount" />
 </android.support.constraint.ConstraintLayout>

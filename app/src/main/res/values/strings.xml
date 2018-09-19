@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">gobran-FeelsBook</string>
-    <string name="main_menu_hint">PRESS EMOTION TO RECORD</string>
+    <string name="mainActivity.Display.Hint">PRESS EMOTION TO RECORD</string>
+    <string name="mainActivity.Button.Statistics">Statistics</string>
+    <string name="mainActivity.Button.History">History</string>
+    <string name="mainActivity.Display.Logo">TEMP LOGO</string>
+    <string name="mainActivity.Button.Joy">Joy</string>
+    <string name="mainActivity.Button.Love">Love</string>
+    <string name="mainActivity.Button.Suprise">Suprise</string>
+    <string name="mainActivity.Button.Anger">Anger</string>
+    <string name="mainActivity.Button.Sadness">Sadness</string>
+    <string name="mainActivity.Button.Fear">Fear</string>
+    <string name="statisticsActivity.Display.JoyCount">Joy:</string>
+    <string name="statisticsActivity.Display.SupriseCount">Suprise:</string>
+    <string name="statisticsActivity.Display.LoveCount">Love:</string>
+    <string name="statisticsActivity.Display.AngerCount">Anger:</string>
+    <string name="statisticsActivity.Display.SadnessCount">Sadness:</string>
+    <string name="statisticsActivity.Display.FearCount">Fear:</string>
+    <string name="statisticsActivity.Display.Description">Emotion Count</string>
+    <string name="historyActivity.Display.Description">Emotion History</string>
 </resources>
