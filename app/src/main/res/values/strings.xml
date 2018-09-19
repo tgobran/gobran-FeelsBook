@@ -18,4 +18,5 @@
     <string name="statisticsActivity.Display.FearCount">Fear:</string>
     <string name="statisticsActivity.Display.Description">Emotion Count</string>
     <string name="historyActivity.Display.Description">Emotion History</string>
+    <string name="statisticsActivity.Display.DefaultCount">-1</string>
 </resources>
