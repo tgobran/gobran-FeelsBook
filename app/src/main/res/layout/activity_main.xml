@@ -1,128 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main.Base"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/main.Logo"
-        android:layout_width="wrap_content"
-        android:layout_height="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:gravity="center"
-        android:text="@string/mainActivity.Display.Logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/mainActivity.Display.Logo" />
 
-    <Button
-        android:id="@+id/main.Statistics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:onClick="accessStatistics"
-        android:text="@string/mainActivity.Button.Statistics"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/main.History"
-        app:layout_constraintTop_toBottomOf="@+id/main.Logo" />
+    <LinearLayout
+        android:id="@+id/main.MenuBar"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/main.History"
-        android:layout_width="wrap_content"
-        android:layout_height="51dp"
-        android:layout_marginTop="64dp"
-        android:onClick="accessHistory"
-        android:text="@string/mainActivity.Button.History"
-        app:layout_constraintEnd_toStartOf="@+id/main.Statistics"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main.Logo" />
+        <Button
+            android:id="@+id/main.Statistics"
+            style='?android:attr/borderlessButtonStyle'
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="accessStatistics"
+            android:text="@string/mainActivity.Button.Statistics" />
 
-    <Button
-        android:id="@+id/main.Love"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/mainActivity.Button.Love"
-        app:layout_constraintEnd_toStartOf="@+id/main.Joy"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main.Statistics" />
+        <Button
+            android:id="@+id/main.History"
+            style='?android:attr/borderlessButtonStyle'
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="accessHistory"
+            android:text="@string/mainActivity.Button.History" />
 
-    <Button
-        android:id="@+id/main.Joy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/mainActivity.Button.Joy"
-        app:layout_constraintEnd_toStartOf="@+id/main.Suprise"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/main.Love"
-        app:layout_constraintTop_toBottomOf="@+id/main.Statistics" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/main.Suprise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/mainActivity.Button.Suprise"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/main.Joy"
-        app:layout_constraintTop_toBottomOf="@+id/main.Statistics" />
+    <LinearLayout
+        android:id="@+id/menu.PositiveEmotions"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/main.Anger"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/mainActivity.Button.Anger"
-        app:layout_constraintEnd_toStartOf="@+id/main.Sadness"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main.Love" />
+        <Button
+            android:id="@+id/main.Suprise"
+            style='?android:attr/borderlessButtonStyle'
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/mainActivity.Button.Suprise" />
 
-    <Button
-        android:id="@+id/main.Sadness"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/mainActivity.Button.Sadness"
-        app:layout_constraintEnd_toStartOf="@+id/main.Fear"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/main.Anger"
-        app:layout_constraintTop_toBottomOf="@+id/main.Joy" />
+        <Button
+            android:id="@+id/main.Joy"
+            style='?android:attr/borderlessButtonStyle'
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/mainActivity.Button.Joy" />
 
-    <Button
-        android:id="@+id/main.Fear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/mainActivity.Button.Fear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/main.Sadness"
-        app:layout_constraintTop_toBottomOf="@+id/main.Suprise" />
+        <Button
+            android:id="@+id/main.Love"
+            style='?android:attr/borderlessButtonStyle'
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/mainActivity.Button.Love" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menu.NegativeEmotions"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/main.Anger"
+            style='?android:attr/borderlessButtonStyle'
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/mainActivity.Button.Anger" />
+
+        <Button
+            android:id="@+id/main.Sadness"
+            style='?android:attr/borderlessButtonStyle'
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/mainActivity.Button.Sadness" />
+
+        <Button
+            android:id="@+id/main.Fear"
+            style='?android:attr/borderlessButtonStyle'
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/mainActivity.Button.Fear" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/main.Hints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginStart="24dp"
-        android:text="@string/mainActivity.Display.Hint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/mainActivity.Display.Hint" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
