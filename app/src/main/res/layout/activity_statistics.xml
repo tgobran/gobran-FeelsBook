@@ -1,173 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/statistics.Base"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".StatisticsActivity">
 
     <TextView
         android:id="@+id/statistics.Description"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/statisticsActivity.Display.Description"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_weight="1" />
 
-    <LinearLayout
-        android:id="@+id/statistics.LoveRow"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        tools:layout_weight="1">
 
-        <TextView
-            android:id="@+id/statistics.LoveLabel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.LoveCount" />
+    <TextView
+        android:id="@+id/statistics.LoveLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center_vertical|end"
+        android:text="@string/statisticsActivity.Display.LoveCount"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/statistics.JoyLabel"
+        app:layout_constraintEnd_toStartOf="@+id/statistics.LoveCount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.Description" />
 
-        <TextView
-            android:id="@+id/statistics.LoveCount"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.DefaultCount" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/statistics.LoveCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/statisticsActivity.Display.DefaultCount"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/statistics.LoveLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/statistics.LoveLabel" />
 
-    <LinearLayout
-        android:id="@+id/statistics.JoyRow"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        tools:layout_weight="1">
 
-        <TextView
-            android:id="@+id/statistics.JoyLabel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.JoyCount" />
+    <TextView
+        android:id="@+id/statistics.JoyLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center_vertical|end"
+        android:text="@string/statisticsActivity.Display.JoyCount"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/statistics.SupriseLabel"
+        app:layout_constraintEnd_toStartOf="@+id/statistics.JoyCount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.LoveLabel" />
 
-        <TextView
-            android:id="@+id/statistics.JoyCount"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.DefaultCount" />
+    <TextView
+        android:id="@+id/statistics.JoyCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/statisticsActivity.Display.DefaultCount"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/statistics.JoyLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/statistics.JoyLabel" />
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/statistics.SupriseRow"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        tools:layout_weight="1">
+    <TextView
+        android:id="@+id/statistics.SupriseLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center_vertical|end"
+        android:text="@string/statisticsActivity.Display.SupriseCount"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/statistics.AngerLabel"
+        app:layout_constraintEnd_toStartOf="@+id/statistics.SupriseCount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.JoyLabel" />
 
-        <TextView
-            android:id="@+id/statistics.SupriseLabel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.SupriseCount" />
+    <TextView
+        android:id="@+id/statistics.SupriseCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/statisticsActivity.Display.DefaultCount"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/statistics.SupriseLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/statistics.SupriseLabel" />
 
-        <TextView
-            android:id="@+id/statistics.SupriseCount"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.DefaultCount" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/statistics.AngerRow"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        tools:layout_weight="1">
+    <TextView
+        android:id="@+id/statistics.AngerLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center_vertical|end"
+        android:text="@string/statisticsActivity.Display.AngerCount"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/statistics.SadnessLabel"
+        app:layout_constraintEnd_toStartOf="@+id/statistics.AngerCount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.SupriseLabel" />
 
-        <TextView
-            android:id="@+id/statistics.AngerLabel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.AngerCount" />
+    <TextView
+        android:id="@+id/statistics.AngerCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/statisticsActivity.Display.DefaultCount"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/statistics.AngerLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/statistics.AngerLabel" />
 
-        <TextView
-            android:id="@+id/statistics.AngerCount"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.DefaultCount" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/statistics.SadnessRow"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        tools:layout_weight="1">
+    <TextView
+        android:id="@+id/statistics.SadnessLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center_vertical|end"
+        android:text="@string/statisticsActivity.Display.SadnessCount"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/statistics.FearLabel"
+        app:layout_constraintEnd_toStartOf="@+id/statistics.SadnessCount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.AngerLabel" />
 
-        <TextView
-            android:id="@+id/statistics.SadnessLabel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.SadnessCount" />
+    <TextView
+        android:id="@+id/statistics.SadnessCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/statisticsActivity.Display.DefaultCount"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/statistics.SadnessLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/statistics.SadnessLabel" />
 
-        <TextView
-            android:id="@+id/statistics.SadnessCount"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.DefaultCount" />
+    <TextView
+        android:id="@+id/statistics.FearLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center_vertical|end"
+        android:text="@string/statisticsActivity.Display.FearCount"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/statistics.FearCount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistics.SadnessLabel" />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/statistics.FearCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/statisticsActivity.Display.DefaultCount"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/statistics.FearLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/statistics.FearLabel" />
 
-    <LinearLayout
-        android:id="@+id/statistics.FearRow"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        tools:layout_weight="1">
 
-        <TextView
-            android:id="@+id/statistics.FearLabel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.FearCount" />
-
-        <TextView
-            android:id="@+id/statistics.FearCount"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/statisticsActivity.Display.DefaultCount" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
