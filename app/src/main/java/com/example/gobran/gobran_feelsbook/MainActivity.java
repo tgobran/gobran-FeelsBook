@@ -10,12 +10,13 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     private EmotionCount count;
-    private EmotionHistory history = new EmotionHistory();
+    private EmotionHistory history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        history = new EmotionHistory(getApplicationContext());
     }
 
     @Override

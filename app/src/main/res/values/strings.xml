@@ -22,6 +22,8 @@
     <string name="addCommentActivity.editCommentHint">Enter Comment</string>
     <string name="addCommentActivity.existingComment" />
     <string name="viewCommentActivity.defaultComment">No Comment</string>
-    <string name="countPreferencesFileKey" translatable="false">com.example.gobran.gobran_feelsbook.emotionCounts</string>
+    <string name="countPreferencesFileKey">com.example.gobran.gobran_feelsbook.emotionCounts</string>
     <string name="countCreationData">\"createdCounts\"</string>
+    <string name="historyFile">\"com.example.gobran.gobran_feelsbook.emotionHistory\"</string>
+    <string name="fileSeparator">#:#</string>
 </resources>
