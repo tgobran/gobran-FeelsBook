@@ -6,12 +6,12 @@
     <string name="mainActivity.Display.Logo">TEMP LOGO</string>
     <string name="mainActivity.Button.Joy">Joy</string>
     <string name="mainActivity.Button.Love">Love</string>
-    <string name="mainActivity.Button.Suprise">Suprise</string>
+    <string name="mainActivity.Button.Surprise">Surprise</string>
     <string name="mainActivity.Button.Anger">Anger</string>
     <string name="mainActivity.Button.Sadness">Sadness</string>
     <string name="mainActivity.Button.Fear">Fear</string>
     <string name="statisticsActivity.Display.JoyCount">Joy:</string>
-    <string name="statisticsActivity.Display.SupriseCount">Suprise:</string>
+    <string name="statisticsActivity.Display.SurpriseCount">Surprise:</string>
     <string name="statisticsActivity.Display.LoveCount">Love:</string>
     <string name="statisticsActivity.Display.AngerCount">Anger:</string>
     <string name="statisticsActivity.Display.SadnessCount">Sadness:</string>
@@ -19,4 +19,9 @@
     <string name="statisticsActivity.Display.Description">Emotion Count</string>
     <string name="historyActivity.Display.Description">Emotion History</string>
     <string name="statisticsActivity.Display.DefaultCount">-1</string>
+    <string name="addCommentActivity.editCommentHint">Enter Comment</string>
+    <string name="addCommentActivity.existingComment" />
+    <string name="viewCommentActivity.defaultComment">No Comment</string>
+    <string name="countPreferencesFileKey" translatable="false">com.example.gobran.gobran_feelsbook.emotionCounts</string>
+    <string name="countCreationData">\"createdCounts\"</string>
 </resources>
