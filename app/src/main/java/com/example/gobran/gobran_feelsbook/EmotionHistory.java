@@ -1,6 +1,7 @@
 package com.example.gobran.gobran_feelsbook;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,83 +13,51 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class EmotionHistory {
-    private ArrayList<EmotionRecord> emotionRecords = new ArrayList<EmotionRecord>();
-
-    private FileOutputStream fileOutStream;
-    private FileInputStream  fileInStream;
+    private EmotionCounter counter;
     private Context context;
+
+    private PrimitiveData primitiveData;
+    private RecordData recordData;
+
+    private int nextId;
+
+    private ArrayList<EmotionRecord> records;
 
     public EmotionHistory(Context ctx) {
         context = ctx;
+
+        primitiveData = new PrimitiveData(ctx);
+        recordData = new RecordData(ctx);
+        counter = new EmotionCounter(primitiveData);
+
+        records = recordData.readRecords();
+        nextId = primitiveData.getData(context.getString(R.string.prefsNextId));
     }
 
-    private void readHistoryFile() {
-        try {
-            fileInStream = context.openFileInput(context.getString(R.string.historyFile));
-            BufferedReader reader = new BufferedReader(new InputStreamReader(fileInStream));
-            String line = reader.readLine();
-
-            while(line != null) {
-                String[] lineParts = line.split(context.getString(R.string.fileSeparator));
-                EmotionType type = EmotionType.values()[Integer.getInteger(lineParts[1])];
-                Date date = new Date();
-                date.setTime(Long.getLong(lineParts[2]));
-                EmotionRecord newRecord = new EmotionRecord(type, date, lineParts[3]);
-
-                line = reader.readLine();
-            }
-            reader.close();
-            fileInStream.close();
+    public ArrayList<Integer> getCounts() {
+        ArrayList<Integer> counts = new ArrayList<Integer>();
+        for(EmotionType type: EmotionType.values()) {
+            counts.add(counter.retrieveCount(type));
         }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
+        return counts;
     }
 
-    private void writeToHistoryFile(EmotionRecord record) {
-        try {
-            fileOutStream = context.openFileOutput(context.getString(R.string.historyFile), Context.MODE_PRIVATE);
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fileOutStream));
-
-            int i = 0;
-            String line = "";
-
-            line += record.getEmotion().getStringForm() + context.getString(R.string.fileSeparator) + record.getDate() + context.getString(R.string.fileSeparator) + record.getComment() + "\n";
-            writer.write(line,0,line.length());
-            i++;
-
-            writer.close();
-            fileOutStream.close();
-
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void editHistoryFile() {
-
-    }
-
-    private void deleteFromHistory() {
-
+    public ArrayList<EmotionRecord> getRecords() {
+        return records;
     }
 
     public void addRecord(EmotionType type, Date date, String comment) {
-        EmotionRecord record = new EmotionRecord(type,date,comment);
-        emotionRecords.add(record);
-        writeToHistoryFile(record);
+        EmotionRecord record = new EmotionRecord(nextId, type, date, comment);
+        records.add(record);
+        recordData.writeRecord(record);
+        counter.updateCount(type,1);
+        primitiveData.saveData(context.getString(R.string.prefsFileKey),nextId);
     }
 
-    public void deleteRecord(Integer index) {
-        if (index > -1 && index < emotionRecords.size()) {
-            emotionRecords.remove(index);
-        }
+    public void editRecord(int id, EmotionType type, Date date, String comment) {
     }
 
-    public EmotionRecord getRecord(Integer index) {
-        if (index > -1  && index < emotionRecords.size()) {
-            return emotionRecords.get(index);
-        }
-        return null;
+    public void deleteRecord(int id) {
     }
+
 }

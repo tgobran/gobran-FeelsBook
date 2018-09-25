@@ -3,34 +3,33 @@ package com.example.gobran.gobran_feelsbook;
 import java.util.Date;
 
 public class EmotionRecord {
+    private int id;
     private EmotionType emotion;
     private Date date;
     private String comment;
 
-    public EmotionRecord(EmotionType type, Date setDate, String setComment) {
+    public EmotionRecord(int identifier, EmotionType type, Date setDate, String setComment) {
+        this.id = identifier;
         this.emotion = type;
         this.date = setDate;
         this.comment = setComment;
     }
 
+    public int getId() { return id;}
+
     public EmotionType getEmotion() {
         return emotion;
-    }
-    public void setEmotion(EmotionType newType) {
-        this.emotion = newType;
     }
 
     public String getDate() {
         return date.toString();
     }
-    public void setDate(Date newDate) {
-        this.date = newDate;
-    }
 
     public String getComment() {
         return comment;
     }
-    public void setComment(String newComment) {
-        this.comment = newComment;
+
+    public String toString() {
+        return emotion.getStringForm() + "  " + date.toString() + "\n" + comment;
     }
 }
