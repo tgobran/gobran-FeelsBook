@@ -16,11 +16,9 @@ public enum EmotionType {
         this.stringForm = stringRep;
     }
 
-    public int getNumId() {
-        return numId;
-    }
+    public int toId() {return numId;}
 
-    public String getStringForm() {
+    public String toString() {
         return stringForm;
     }
 }

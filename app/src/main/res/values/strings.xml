@@ -21,11 +21,6 @@
     <string name="addCommentActivity.editCommentHint">Enter Comment</string>
     <string name="addCommentActivity.existingComment"> </string>
     <string name="viewCommentActivity.defaultComment">No Comment</string>
-    <string name="prefsFileKey">com.example.gobran.gobran_feelsbook.emotionCounts</string>
-    <string name="prefsCreationStatus">createdCounts</string>
-    <string name="prefsNextId">nextId</string>
-    <string name="historyFile">com.example.gobran.gobran_feelsbook.emotionHistory</string>
-    <string name="fileSeparator">#:#</string>
     <string name="addCommentActivity.saveCommentButton">Save Comment</string>
     <string name="addCommentResultKey">comment</string>
     <string name="addCommentEmotionTypeKey">emotionType</string>

@@ -9,14 +9,14 @@ import android.widget.Button;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-    private FeelsBookApp app;
+    private EmotionManagerController emotionManagerController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        app = (FeelsBookApp)getApplication();
+        emotionManagerController= ((FeelsBookApp)getApplication()).getEmotionManagerController();
 
         Button loveButton = findViewById(R.id.main_Love);
         Button joyButton = findViewById(R.id.main_Joy);
@@ -28,42 +28,42 @@ public class MainActivity extends AppCompatActivity {
         loveButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                addComment(EmotionType.LOVE);
+                getComment(EmotionType.LOVE);
                 return true;
             }
         });
         joyButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                addComment(EmotionType.JOY);
+                getComment(EmotionType.JOY);
                 return true;
             }
         });
         surpriseButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                addComment(EmotionType.SURPRISE);
+                getComment(EmotionType.SURPRISE);
                 return true;
             }
         });
         angerButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                addComment(EmotionType.ANGER);
+                getComment(EmotionType.ANGER);
                 return true;
             }
         });
         sadnessButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                addComment(EmotionType.SADNESS);
+                getComment(EmotionType.SADNESS);
                 return true;
             }
         });
         fearButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                addComment(EmotionType.FEAR);
+                getComment(EmotionType.FEAR);
                 return true;
             }
         });
@@ -71,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode <= EmotionType.FEAR.getNumId() && requestCode >= EmotionType.LOVE.getNumId()) {
+        if (requestCode <= EmotionType.FEAR.toId() && requestCode >= EmotionType.LOVE.toId()) {
             if (resultCode == RESULT_OK) {
-                app.getHistory().addRecord(EmotionType.values()[requestCode], new Date(),data.getStringExtra(this.getString(R.string.addCommentResultKey)));
+                emotionManagerController.addRecord(EmotionType.values()[requestCode], new Date(),data.getStringExtra(this.getString(R.string.addCommentResultKey)));
             }
             else {
-                app.getHistory().addRecord(EmotionType.values()[requestCode], new Date(),"");
+                emotionManagerController.addRecord(EmotionType.values()[requestCode], new Date(),"");
             }
         }
     }
@@ -91,26 +91,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addLove(View view) {
-        app.getHistory().addRecord(EmotionType.LOVE, new Date(),"");
+        emotionManagerController.addRecord(EmotionType.LOVE, new Date(),"");
     }
     public void addJoy(View view) {
-        app.getHistory().addRecord(EmotionType.JOY, new Date(),"");
+        emotionManagerController.addRecord(EmotionType.JOY, new Date(),"");
     }
     public void addSurprise(View view) {
-        app.getHistory().addRecord(EmotionType.SURPRISE, new Date(),"");
+        emotionManagerController.addRecord(EmotionType.SURPRISE, new Date(),"");
     }
     public void addAnger(View view) {
-        app.getHistory().addRecord(EmotionType.ANGER, new Date(),"");
+        emotionManagerController.addRecord(EmotionType.ANGER, new Date(),"");
     }
     public void addSadness(View view) {
-        app.getHistory().addRecord(EmotionType.SADNESS, new Date(),"");
+        emotionManagerController.addRecord(EmotionType.SADNESS, new Date(),"");
     }
     public void addFear(View view) {
-        app.getHistory().addRecord(EmotionType.FEAR, new Date(),"");
+        emotionManagerController.addRecord(EmotionType.FEAR, new Date(),"");
     }
 
-    public void addComment(EmotionType type) {
+    public void getComment(EmotionType type) {
         Intent intent = new Intent(this, AddCommentActivity.class);
-        startActivityForResult(intent,type.getNumId());
+        startActivityForResult(intent,type.toId());
     }
 }

@@ -4,37 +4,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class StatisticsActivity extends AppCompatActivity {
-    private FeelsBookApp app;
+    private EmotionManagerController emotionManagerController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
-        app = (FeelsBookApp)getApplicationContext();
+
+        emotionManagerController= ((FeelsBookApp)getApplication()).getEmotionManagerController();
     }
 
     @Override
     protected void  onStart() {
         super.onStart();
-        readStatistics();
+        update();
     }
 
-    private void readStatistics() {
-        ArrayList<Integer> counts = app.getHistory().getCounts();
+    private void update() {
+        Integer[] counts = emotionManagerController.getCounts();
         TextView textView = findViewById(R.id.statistics_LoveCount);
-        textView.setText(String.format("%d",counts.get(EmotionType.LOVE.getNumId())));
+        textView.setText(String.format("%d",counts[EmotionType.LOVE.toId()]));
         textView = findViewById(R.id.statistics_JoyCount);
-        textView.setText(String.format("%d",counts.get(EmotionType.JOY.getNumId())));
+        textView.setText(String.format("%d",counts[EmotionType.JOY.toId()]));
         textView = findViewById(R.id.statistics_SurpriseCount);
-        textView.setText(String.format("%d",counts.get(EmotionType.SURPRISE.getNumId())));
+        textView.setText(String.format("%d",counts[EmotionType.SURPRISE.toId()]));
         textView = findViewById(R.id.statistics_AngerCount);
-        textView.setText(String.format("%d",counts.get(EmotionType.ANGER.getNumId())));
+        textView.setText(String.format("%d",counts[EmotionType.ANGER.toId()]));
         textView = findViewById(R.id.statistics_SadnessCount);
-        textView.setText(String.format("%d",counts.get(EmotionType.SADNESS.getNumId())));
+        textView.setText(String.format("%d",counts[EmotionType.SADNESS.toId()]));
         textView = findViewById(R.id.statistics_FearCount);
-        textView.setText(String.format("%d",counts.get(EmotionType.FEAR.getNumId())));
+        textView.setText(String.format("%d",counts[EmotionType.FEAR.toId()]));
 
     }
 }
