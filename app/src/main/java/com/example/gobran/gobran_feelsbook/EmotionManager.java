@@ -2,7 +2,7 @@ package com.example.gobran.gobran_feelsbook;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 public class EmotionManager {
     private RecordFile recordFile;
@@ -34,14 +34,19 @@ public class EmotionManager {
         return records;
     }
 
-    public void addRecord(EmotionType type, Date date, String comment) {
-        EmotionRecord record = new EmotionRecord(type, date, comment);
-        records.add(0,record);
+    public void addRecord(EmotionType type, Calendar dateTime, String comment) {
+        EmotionRecord record = new EmotionRecord(type, dateTime, comment);
+        int index = 0;
+        while(records.size() > index && dateTime.compareTo(records.get(index).getDateTime()) < 0) {
+            index++;
+        }
+        records.add(index,record);
         recordFile.writeRecords(records);
         counts[type.toId()]++;
     }
 
     public void deleteRecord(int index) {
+        counts[records.get(index).getEmotion().toId()]--;
         records.remove(index);
         recordFile.writeRecords(records);
     }

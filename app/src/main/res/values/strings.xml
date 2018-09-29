@@ -20,9 +20,23 @@
     <string name="statisticsActivity.Display.DefaultCount">-1</string>
     <string name="addCommentActivity.editCommentHint">Enter Comment</string>
     <string name="addCommentActivity.existingComment"> </string>
-    <string name="viewCommentActivity.defaultComment">No Comment</string>
+    <string name="viewRecordActivity.defaultComment">No Comment</string>
     <string name="addCommentActivity.saveCommentButton">Save Comment</string>
     <string name="addCommentResultKey">comment</string>
     <string name="addCommentEmotionTypeKey">emotionType</string>
     <string name="mainActivity.Display.Hint">Tap an emotion to record, \n Hold the emotion to add a comment</string>
+    <string name="recordIntent">record</string>
+    <string name="indexIntent">index</string>
+    <string name="viewRecordActivity.defaultEmotion">EMOTION</string>
+    <string name="viewRecordActivity.defaultDate">0000-00-00T00:00:00</string>
+    <string name="viewRecordActivity.SaveRecord">Save Changes</string>
+    <string name="viewRecordActivity.DeleteRecord">Delete Record</string>
+    <string name="viewRecordActivity.EditDate">Edit Date</string>
+    <string name="viewRecordActivity.EditTime">Edit Time</string>
+    <string name="timePickerFragment.Colon">:</string>
+    <string name="timePickerFragment.Confirm">Set Time</string>
+    <string name="timePickerFragment.Cancel">Cancel</string>
+    <string name="commentWriterFragment.Confirm">Set Comment</string>
+    <string name="commentWriterFragment.Cancel">Cancel</string>
+
 </resources>

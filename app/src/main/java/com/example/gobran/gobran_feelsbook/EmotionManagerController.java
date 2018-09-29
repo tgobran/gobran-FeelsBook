@@ -1,10 +1,10 @@
 package com.example.gobran.gobran_feelsbook;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 public class EmotionManagerController {
-    private EmotionManager emotionManager = null;
+    private EmotionManager emotionManager;
 
     public EmotionManagerController(EmotionManager em) {
         this.emotionManager = em;
@@ -18,11 +18,14 @@ public class EmotionManagerController {
         return emotionManager.getCounts();
     }
 
-    public void addRecord(EmotionType type, Date date, String comment) {
-        emotionManager.addRecord(type,date,comment);
+    public void addRecord(EmotionType type, Calendar dateTime, String comment) {
+        emotionManager.addRecord(type,dateTime,comment);
     }
-    public void editRecord(int index, EmotionType type, Date date, String comment) {
+    public void editRecord(int index, EmotionType type, Calendar dateTime, String comment) {
         emotionManager.deleteRecord(index);
-        emotionManager.addRecord(type,date,comment);
+        emotionManager.addRecord(type,dateTime,comment);
+    }
+    public void deleteRecord(int index) {
+        emotionManager.deleteRecord(index);
     }
 }

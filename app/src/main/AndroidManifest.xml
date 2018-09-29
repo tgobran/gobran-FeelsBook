@@ -27,8 +27,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".AddCommentActivity" />
-        <activity android:name=".ViewCommentActivity"></activity>
+        <activity android:name=".AddCommentActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".HistoryActivity" />
+        </activity>
+        <activity android:name=".ViewRecordActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HistoryActivity" />
+        </activity>
     </application>
 
 </manifest>

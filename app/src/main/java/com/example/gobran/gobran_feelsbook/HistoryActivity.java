@@ -1,8 +1,10 @@
 package com.example.gobran.gobran_feelsbook;
 
-import android.app.Application;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -17,6 +19,13 @@ public class HistoryActivity extends AppCompatActivity {
 
         emotionsList = (ListView) findViewById(R.id.history_list);
         emotionManagerController= ((FeelsBookApp)getApplication()).getEmotionManagerController();
+
+        emotionsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                viewRecord((EmotionRecord)parent.getItemAtPosition(position),position);
+            }
+        });
     }
 
     @Override
@@ -30,5 +39,10 @@ public class HistoryActivity extends AppCompatActivity {
         emotionsList.setAdapter(historyAdapter);
     }
 
-
+    private void viewRecord(EmotionRecord record, int index) {
+        Intent intent = new Intent(this, ViewRecordActivity.class);
+        intent.putExtra(this.getString(R.string.recordIntent),record);
+        intent.putExtra(this.getString(R.string.indexIntent),index);
+        startActivity(intent);
+    }
 }
