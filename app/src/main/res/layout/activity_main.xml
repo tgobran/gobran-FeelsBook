@@ -59,116 +59,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainActivity.AppNameView" />
 
-    <Button
-        android:id="@+id/mainActivity.SurpriseButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:text="@string/mainActivity.SurpriseButton"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mainActivity.FearButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mainActivity.JoyButton"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity.StatisticsButton" />
-
-    <Button
-        android:id="@+id/mainActivity.JoyButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:text="@string/mainActivity.JoyButton"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mainActivity.SadnessButton"
-        app:layout_constraintEnd_toStartOf="@+id/mainActivity.SurpriseButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mainActivity.LoveButton"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity.StatisticsButton" />
-
-    <Button
-        android:id="@+id/mainActivity.LoveButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:text="@string/mainActivity.LoveButton"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mainActivity.AngerButton"
-        app:layout_constraintEnd_toStartOf="@+id/mainActivity.JoyButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity.HistoryButton" />
-
-    <Button
-        android:id="@+id/mainActivity.SadnessButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
-        android:layout_weight="1"
-        android:text="@string/mainActivity.SadnessButton"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mainActivity.HintsView"
-        app:layout_constraintEnd_toStartOf="@+id/mainActivity.FearButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mainActivity.AngerButton"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity.JoyButton" />
-
-    <Button
-        android:id="@+id/mainActivity.AngerButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
-        android:layout_weight="1"
-        android:text="@string/mainActivity.AngerButton"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mainActivity.HintsView"
-        app:layout_constraintEnd_toStartOf="@+id/mainActivity.SadnessButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity.LoveButton" />
-
-    <Button
-        android:id="@+id/mainActivity.FearButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="32dp"
-        android:layout_weight="1"
-        android:text="@string/mainActivity.FearButton"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mainActivity.HintsView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mainActivity.SadnessButton"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivity.SurpriseButton" />
-
     <TextView
         android:id="@+id/mainActivity.HintsView"
         android:layout_width="0dp"
@@ -184,5 +74,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <GridView
+        android:id="@+id/mainActivity.EmotionButtonsGrid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:numColumns="auto_fit"
+        app:layout_constraintBottom_toTopOf="@+id/mainActivity.HintsView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainActivity.HistoryButton" />
 
 </android.support.constraint.ConstraintLayout>
