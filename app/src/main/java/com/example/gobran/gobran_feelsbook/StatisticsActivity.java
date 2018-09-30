@@ -2,38 +2,27 @@ package com.example.gobran.gobran_feelsbook;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.widget.ListView;
 
 public class StatisticsActivity extends AppCompatActivity {
-    private EmotionManagerController emotionManagerController;
+    private CountAdapter countAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
-        emotionManagerController= ((FeelsBookApp)getApplication()).getEmotionManagerController();
+        EmotionManagerController emotionManagerController= ((FeelsBookApp)getApplication()).getEmotionManagerController();
+
+        ListView countList = findViewById(R.id.statisticsActivity_EmotionCountsList);
+        countList.setEnabled(false);
+        countAdapter = new CountAdapter(this,emotionManagerController.getCounts());
+        countList.setAdapter(countAdapter);
+
     }
 
     @Override
-    protected void  onStart() {
-        super.onStart();
-        update();
-    }
-
-    private void update() {
-        Integer[] counts = emotionManagerController.getCounts();
-        TextView textView = findViewById(R.id.statistics_LoveCount);
-        textView.setText(String.format("%d",counts[EmotionType.LOVE.toId()]));
-        textView = findViewById(R.id.statistics_JoyCount);
-        textView.setText(String.format("%d",counts[EmotionType.JOY.toId()]));
-        textView = findViewById(R.id.statistics_SurpriseCount);
-        textView.setText(String.format("%d",counts[EmotionType.SURPRISE.toId()]));
-        textView = findViewById(R.id.statistics_AngerCount);
-        textView.setText(String.format("%d",counts[EmotionType.ANGER.toId()]));
-        textView = findViewById(R.id.statistics_SadnessCount);
-        textView.setText(String.format("%d",counts[EmotionType.SADNESS.toId()]));
-        textView = findViewById(R.id.statistics_FearCount);
-        textView.setText(String.format("%d",counts[EmotionType.FEAR.toId()]));
-
+    protected void  onResume() {
+        super.onResume();
+        countAdapter.notifyDataSetChanged();
     }
 }

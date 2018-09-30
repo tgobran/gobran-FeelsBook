@@ -9,8 +9,6 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.NumberPicker;
-
-import java.sql.Time;
 import java.util.Calendar;
 
 public class TimePickerFragment extends DialogFragment {
@@ -24,31 +22,36 @@ public class TimePickerFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Calendar c = Calendar.getInstance();
 
+        Bundle timeData = getArguments();
+        int hour = timeData.getInt("HOUR",c.get(Calendar.HOUR_OF_DAY));
+        int minute = timeData.getInt("MINUTE",c.get(Calendar.MINUTE));
+        int second = timeData.getInt("SECOND",c.get(Calendar.SECOND));
+
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View numberChoiceView = inflater.inflate(R.layout.fragment_time_picker, null);
         final NumberPicker hourPicker = numberChoiceView.findViewById(R.id.timePickerFragment_HourPicker);
         hourPicker.setMaxValue(23);
         hourPicker.setMinValue(0);
-        hourPicker.setValue(c.get(Calendar.HOUR_OF_DAY));
+        hourPicker.setValue(hour);
         final NumberPicker minutePicker = numberChoiceView.findViewById(R.id.timePickerFragment_MinutePicker);
         minutePicker.setMaxValue(59);
         minutePicker.setMinValue(0);
-        minutePicker.setValue(c.get(Calendar.MINUTE));
+        minutePicker.setValue(minute);
         final NumberPicker secondPicker = numberChoiceView.findViewById(R.id.timePickerFragment_SecondPicker);
         secondPicker.setMaxValue(59);
         secondPicker.setMinValue(0);
-        secondPicker.setValue(c.get(Calendar.SECOND));
+        secondPicker.setValue(second);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(numberChoiceView)
-                .setPositiveButton(R.string.timePickerFragment_Confirm, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.timePickerFragment_ConfirmButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mCallback.onNewTimeSet(hourPicker.getValue(),minutePicker.getValue(),secondPicker.getValue());
 
                     }
                 })
-                .setNegativeButton(R.string.timePickerFragment_Cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.timePickerFragment_CancelButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         TimePickerFragment.this.getDialog().cancel();

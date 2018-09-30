@@ -22,22 +22,25 @@ public class CommentWriterFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final Calendar c = Calendar.getInstance();
-
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View commentWriterView = inflater.inflate(R.layout.fragment_comment_writer, null);
-        final EditText commentEditor = commentWriterView.findViewById(R.id.commentWriter_EditComment);
+        final EditText commentEditor = commentWriterView.findViewById(R.id.commentWriterFragment_EditComment);
+
+        Bundle commentData = getArguments();
+        if (commentData != null) {
+            commentEditor.setText(commentData.getString("COMMENT",""));
+        }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(commentWriterView)
-                .setPositiveButton(R.string.commentWriterFragment_Confirm, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.commentWriterFragment_ConfirmButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mCallback.onCommentSet(commentEditor.getText().toString());
 
                     }
                 })
-                .setNegativeButton(R.string.commentWriterFragment_Cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.commentWriterFragment_CancelButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mCallback.onCommentSet(null);

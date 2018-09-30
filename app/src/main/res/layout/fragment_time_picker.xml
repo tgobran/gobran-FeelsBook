@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/timePickerFragment.Base"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout_editor_absoluteY="25dp">
@@ -13,18 +14,18 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/timePickerFragment.HourMinuteColon"
+        app:layout_constraintEnd_toStartOf="@+id/timePickerFragment.HourMinuteColonView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></NumberPicker>
 
     <TextView
-        android:id="@+id/timePickerFragment.HourMinuteColon"
+        android:id="@+id/timePickerFragment.HourMinuteColonView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/timePickerFragment.Colon"
+        android:text="@string/timePickerFragment.ColonView"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/timePickerFragment.MinutePicker"
@@ -39,18 +40,18 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/timePickerFragment.MinuteSecondColon"
+        app:layout_constraintEnd_toStartOf="@+id/timePickerFragment.MinuteSecondColonView"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/timePickerFragment.HourMinuteColon"
+        app:layout_constraintStart_toEndOf="@+id/timePickerFragment.HourMinuteColonView"
         app:layout_constraintTop_toTopOf="parent"></NumberPicker>
 
     <TextView
-        android:id="@+id/timePickerFragment.MinuteSecondColon"
+        android:id="@+id/timePickerFragment.MinuteSecondColonView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/timePickerFragment.Colon"
+        android:text="@string/timePickerFragment.ColonView"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/timePickerFragment.SecondPicker"
@@ -67,7 +68,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/timePickerFragment.MinuteSecondColon"
+        app:layout_constraintStart_toEndOf="@+id/timePickerFragment.MinuteSecondColonView"
         app:layout_constraintTop_toTopOf="parent"></NumberPicker>
 
 </android.support.constraint.ConstraintLayout>

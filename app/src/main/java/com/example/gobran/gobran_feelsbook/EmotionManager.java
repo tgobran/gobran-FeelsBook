@@ -3,12 +3,14 @@ package com.example.gobran.gobran_feelsbook;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.EnumMap;
+import java.util.Map;
 
 public class EmotionManager {
     private RecordFile recordFile;
 
     private ArrayList<EmotionRecord> records;
-    private Integer[] counts;
+    private ArrayList<Integer> counts;
 
     public EmotionManager(File filePath) {
         recordFile = new RecordFile(filePath);
@@ -17,17 +19,17 @@ public class EmotionManager {
             records = new ArrayList<EmotionRecord>();
         }
 
-        counts = new Integer[EmotionType.values().length];
+        counts = new ArrayList<Integer>();
         for(int i = 0; i < EmotionType.values().length; i++) {
-            counts[i] = 0;
+            counts.add(0);
         }
-
         for (EmotionRecord record: records) {
-            counts[record.getEmotion().toId()]++;
+            counts.set(record.getEmotion().toId(),counts.get(record.getEmotion().toId())+1);
+
         }
     }
 
-    public Integer[] getCounts() {
+    public ArrayList<Integer> getCounts() {
         return counts;
     }
     public ArrayList<EmotionRecord> getRecords() {
@@ -42,11 +44,11 @@ public class EmotionManager {
         }
         records.add(index,record);
         recordFile.writeRecords(records);
-        counts[type.toId()]++;
+        counts.set(type.toId(),counts.get(type.toId())+1);
     }
 
     public void deleteRecord(int index) {
-        counts[records.get(index).getEmotion().toId()]--;
+        counts.set(records.get(index).getEmotion().toId(),counts.get(records.get(index).getEmotion().toId())-1);
         records.remove(index);
         recordFile.writeRecords(records);
     }

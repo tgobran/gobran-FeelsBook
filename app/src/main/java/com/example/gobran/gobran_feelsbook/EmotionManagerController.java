@@ -2,6 +2,7 @@ package com.example.gobran.gobran_feelsbook;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.EnumMap;
 
 public class EmotionManagerController {
     private EmotionManager emotionManager;
@@ -14,7 +15,7 @@ public class EmotionManagerController {
         return emotionManager.getRecords();
     }
 
-    public Integer[] getCounts() {
+    public ArrayList<Integer> getCounts() {
         return emotionManager.getCounts();
     }
 

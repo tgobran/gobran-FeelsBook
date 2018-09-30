@@ -2,6 +2,7 @@ package com.example.gobran.gobran_feelsbook;
 
 import android.content.Intent;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,16 +23,17 @@ public class MainActivity extends AppCompatActivity implements CommentWriterFrag
 
         emotionManagerController= ((FeelsBookApp)getApplication()).getEmotionManagerController();
 
-        Button loveButton = findViewById(R.id.main_Love);
-        Button joyButton = findViewById(R.id.main_Joy);
-        Button surpriseButton = findViewById(R.id.main_Surprise);
-        Button angerButton = findViewById(R.id.main_Anger);
-        Button sadnessButton = findViewById(R.id.main_Sadness);
-        Button fearButton = findViewById(R.id.main_Fear);
+        Button loveButton = findViewById(R.id.mainActivity_LoveButton);
+        Button joyButton = findViewById(R.id.mainActivity_JoyButton);
+        Button surpriseButton = findViewById(R.id.mainActivity_SurpriseButton);
+        Button angerButton = findViewById(R.id.mainActivity_AngerButton);
+        Button sadnessButton = findViewById(R.id.mainActivity_SadnessButton);
+        Button fearButton = findViewById(R.id.mainActivity_FearButton);
 
-        Button statisticsButton = findViewById(R.id.main_Statistics);
-        Button historyButton = findViewById(R.id.main_History);
+        Button statisticsButton = findViewById(R.id.mainActivity_StatisticsButton);
+        Button historyButton = findViewById(R.id.mainActivity_HistoryButton);
 
+        loveButton.setTextColor(ContextCompat.getColor(this,EmotionType.LOVE.toColor()));
         loveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements CommentWriterFrag
             }
         });
 
+        joyButton.setTextColor(ContextCompat.getColor(this,EmotionType.JOY.toColor()));
         joyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements CommentWriterFrag
             }
         });
 
+        surpriseButton.setTextColor(ContextCompat.getColor(this,EmotionType.SURPRISE.toColor()));
         surpriseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements CommentWriterFrag
             }
         });
 
+        angerButton.setTextColor(ContextCompat.getColor(this,EmotionType.ANGER.toColor()));
         angerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements CommentWriterFrag
             }
         });
 
+        sadnessButton.setTextColor(ContextCompat.getColor(this,EmotionType.SADNESS.toColor()));
         sadnessButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements CommentWriterFrag
             }
         });
 
+        fearButton.setTextColor(ContextCompat.getColor(this,EmotionType.FEAR.toColor()));
         fearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements CommentWriterFrag
 
     public void addEmotion(EmotionType type, String comment) {
         emotionManagerController.addRecord(type, Calendar.getInstance(), comment);
-        Toast.makeText(this, "Added " + type.toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Registered " + type.toString(), Toast.LENGTH_SHORT).show();
     }
 
 

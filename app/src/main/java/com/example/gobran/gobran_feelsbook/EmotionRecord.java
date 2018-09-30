@@ -21,16 +21,12 @@ public class EmotionRecord implements Serializable {
     public Calendar getDateTime() {
         return dateTime;
     }
+    public String getDateTimeISO() {
+        return String.format("%04d-%02d-%02dT%02d:%02d:%02d",dateTime.get(Calendar.YEAR),dateTime.get(Calendar.MONTH),dateTime.get(Calendar.DAY_OF_MONTH),dateTime.get(Calendar.HOUR_OF_DAY),dateTime.get(Calendar.MINUTE),dateTime.get(Calendar.SECOND));
+    }
 
     public String getComment() {
         return comment;
     }
 
-    public String toString() {
-        String format = emotionType.toString() + " | " + String.format("%04d-%02d-%02dT%02d:%02d:%02d",dateTime.get(Calendar.YEAR),dateTime.get(Calendar.MONTH),dateTime.get(Calendar.DAY_OF_MONTH),dateTime.get(Calendar.HOUR_OF_DAY),dateTime.get(Calendar.MINUTE),dateTime.get(Calendar.SECOND));;
-        if (comment != "") {
-            return format + "\n" + comment;
-        }
-        return format;
-    }
 }

@@ -1,6 +1,7 @@
 package com.example.gobran.gobran_feelsbook;
 
 import android.content.Intent;
+import android.icu.text.AlphabeticIndex;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,18 +10,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class HistoryActivity extends AppCompatActivity {
-    private ListView emotionsList;
-    private EmotionManagerController emotionManagerController;
+    private RecordAdapter recordAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        emotionsList = (ListView) findViewById(R.id.history_list);
-        emotionManagerController= ((FeelsBookApp)getApplication()).getEmotionManagerController();
+        EmotionManagerController emotionManagerController = ((FeelsBookApp)getApplication()).getEmotionManagerController();
 
-        emotionsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ListView historyList = findViewById(R.id.historyActivity_HistoryListView);
+        recordAdapter = new RecordAdapter(this,emotionManagerController.getRecords());
+        historyList.setAdapter(recordAdapter);
+
+        historyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 viewRecord((EmotionRecord)parent.getItemAtPosition(position),position);
@@ -29,14 +32,9 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        update();
-    }
-
-    private void update() {
-        ArrayAdapter<EmotionRecord> historyAdapter = new ArrayAdapter<EmotionRecord>(this,R.layout.emotion_view, emotionManagerController.getRecords());
-        emotionsList.setAdapter(historyAdapter);
+    public void onResume() {
+        super.onResume();
+        recordAdapter.notifyDataSetChanged();
     }
 
     private void viewRecord(EmotionRecord record, int index) {

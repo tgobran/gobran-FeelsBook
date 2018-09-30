@@ -2,13 +2,13 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/viewRecord.Base"
+    android:id="@+id/viewRecordActivity.Base"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewRecordActivity">
 
     <TextView
-        android:id="@+id/viewRecord.EmotionView"
+        android:id="@+id/viewRecordActivity.EmotionView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -19,12 +19,13 @@
         android:gravity="center"
         android:text="@string/viewRecordActivity.defaultEmotion"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/viewRecord.DateView"
+        android:id="@+id/viewRecordActivity.DateView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -35,63 +36,14 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/viewRecordActivity.defaultDate"
-        android:inputType="datetime"
+        android:text="@string/viewRecordActivity.defaultDate"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewRecord.EmotionView" />
-
-    <EditText
-        android:id="@+id/viewRecord.CommentView"
-        android:layout_width="0dp"
-        android:layout_height="369dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="top|start"
-        android:hint="@string/viewRecordActivity.defaultComment"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/viewRecord.DeleteRecordButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewRecord.EditDateButton" />
+        app:layout_constraintTop_toBottomOf="@+id/viewRecordActivity.EmotionView" />
 
     <Button
-        android:id="@+id/viewRecord.SaveRecordButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/viewRecordActivity.SaveRecord"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewRecord.DeleteRecordButton" />
-
-    <Button
-        android:id="@+id/viewRecord.DeleteRecordButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/viewRecordActivity.DeleteRecord"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/viewRecord.SaveRecordButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/viewRecord.EditDateButton"
+        android:id="@+id/viewRecordActivity.EditDateButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -99,24 +51,96 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:text="@string/viewRecordActivity.EditDate"
-        app:layout_constraintEnd_toStartOf="@+id/viewRecord.EditTimeButton"
+        android:text="@string/viewRecordActivity.EditDateButton"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/viewRecordActivity.EditTimeButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewRecord.DateView" />
+        app:layout_constraintTop_toBottomOf="@+id/viewRecordActivity.DateView" />
 
     <Button
-        android:id="@+id/viewRecord.EditTimeButton"
+        android:id="@+id/viewRecordActivity.EditTimeButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:text="@string/viewRecordActivity.EditTime"
-        app:layout_constraintBaseline_toBaselineOf="@+id/viewRecord.EditDateButton"
+        android:text="@string/viewRecordActivity.EditTimeButton"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/viewRecordActivity.EditDateButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewRecord.EditDateButton" />
+        app:layout_constraintStart_toEndOf="@+id/viewRecordActivity.EditDateButton" />
+
+    <TextView
+        android:id="@+id/viewRecordActivity.CommentView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="top|start"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/viewRecordActivity.EditCommentButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewRecordActivity.EditDateButton" />
+
+    <Button
+        android:id="@+id/viewRecordActivity.EditCommentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/viewRecordActivity.EditCommentButton"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/viewRecordActivity.DeleteRecordButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/viewRecordActivity.DeleteRecordButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/viewRecordActivity.DeleteRecordButton"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewRecordActivity.SaveRecordButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/viewRecordActivity.SaveRecordButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/viewRecordActivity.SaveRecordButton"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/viewRecordActivity.DeleteRecordButton" />
 
 </android.support.constraint.ConstraintLayout>
