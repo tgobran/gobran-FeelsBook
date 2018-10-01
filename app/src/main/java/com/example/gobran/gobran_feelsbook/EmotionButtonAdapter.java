@@ -29,7 +29,7 @@ public class EmotionButtonAdapter extends ArrayAdapter<EmotionType> {
         TextView emotionButton = convertView.findViewById(R.id.emotionButtonView_EmotionButtonView);
 
         emotionButton.setText(type.toString());
-        emotionButton.setTextColor(ContextCompat.getColor(getContext(),type.toColor()));
+        emotionButton.setBackgroundColor(ContextCompat.getColor(getContext(),type.toColor()));
 
         return convertView;
     }
