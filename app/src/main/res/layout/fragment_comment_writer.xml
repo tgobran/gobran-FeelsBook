@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/commentWriterFragment.EditComment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
@@ -20,7 +20,8 @@
         android:gravity="top|start"
         android:hint="@string/commentWriterFragment.DefaultComment"
         android:importantForAutofill="no"
-        android:inputType="text"
+        android:inputType="textMultiLine"
+        android:maxLength="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

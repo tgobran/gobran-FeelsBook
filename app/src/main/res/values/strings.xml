@@ -4,42 +4,41 @@
     <string name="mainActivity.AppNameView">Feels Book</string>
     <string name="mainActivity.StatisticsButton">Statistics</string>
     <string name="mainActivity.HistoryButton">History</string>
-    <string name="mainActivity.LoveButton">Love</string>
-    <string name="mainActivity.JoyButton">Joy</string>
-    <string name="mainActivity.SurpriseButton">Surprise</string>
-    <string name="mainActivity.AngerButton">Anger</string>
-    <string name="mainActivity.SadnessButton">Sadness</string>
-    <string name="mainActivity.FearButton">Fear</string>
     <string name="mainActivity.HintView">Tap an emotion to record, \n Hold the emotion to add a comment</string>
 
     <string name="statisticsActivity.TitleView">Emotion Count</string>
 
     <string name="historyActivity.TitleView">Emotion History</string>
 
-    <string name="viewRecordActivity.defaultEmotion">EMOTION</string>
-    <string name="viewRecordActivity.defaultDate">0000-00-00T00:00:00</string>
-    <string name="viewRecordActivity.EditDateButton">Edit Date</string>
-    <string name="viewRecordActivity.EditTimeButton">Edit Time</string>
-    <string name="viewRecordActivity.EditCommentButton">Edit Comment</string>
-    <string name="viewRecordActivity.SaveRecordButton">Save Changes</string>
-    <string name="viewRecordActivity.DeleteRecordButton">Delete Record</string>
+    <string name="viewEmotionRecordActivity.defaultEmotion">EMOTION</string>
+    <string name="viewEmotionRecordActivity.defaultDate">0000-00-00T00:00:00</string>
+    <string name="viewEmotionRecordActivity.EditDateButton">Edit Date</string>
+    <string name="viewEmotionRecordActivity.EditTimeButton">Edit Time</string>
+    <string name="viewEmotionRecordActivity.EditCommentButton">Edit Comment</string>
+    <string name="viewEmotionRecordActivity.DeleteRecordButton">Delete Record</string>
+    <string name="viewEmotionRecordActivity.EmotionRecordIntent">EMOTION_RECORD</string>
+
+    <string name="datePickerFragment.YearArgument">YEAR</string>
+    <string name="datePickerFragment.MonthArgument">MONTH</string>
+    <string name="datePickerFragment.DayArgument">DAY</string>
 
     <string name="timePickerFragment.ConfirmButton">Set Time</string>
     <string name="timePickerFragment.CancelButton">Cancel</string>
+    <string name="timePickerFragment.ColonView">:</string>
+    <string name="timePickerFragment.HourArgument">HOUR</string>
+    <string name="timePickerFragment.MinuteArgument">MINUTE</string>
+    <string name="timePickerFragment.SecondArgument">SECOND</string>
 
+    <string name="commentWriterFragment.DefaultComment">Enter Comment</string>
     <string name="commentWriterFragment.ConfirmButton">Set Comment</string>
     <string name="commentWriterFragment.CancelButton">Cancel</string>
+    <string name="commentWriterFragment.CommentArgument">COMMENT</string>
 
-    <string name="timePickerFragment.ColonView">:</string>
+    <string name="emotionRecordView.DefaultEmotionView">EMOTION</string>
+    <string name="emotionRecordView.DefaultDateView">DATE</string>
+    <string name="emotionRecordView.DefaultCommentView">COMMENT</string>
 
-    <string name="recordView.DefaultEmotionView">EMOTION</string>
-    <string name="recordView.DefaultDateView">DATE</string>
-    <string name="recordView.DefaultCommentView">COMMENT</string>
-
-    <string name="countView.DefaultEmotionView">EMOTION</string>
-    <string name="countView.DefaultCountView">COUNT</string>
-
-    <string name="recordIntent">record</string>
-    <string name="indexIntent">index</string>
-    <string name="commentWriterFragment.DefaultComment">Enter Comment</string>
+    <string name="emotionCountView.DefaultEmotionView">EMOTION</string>
+    <string name="emotionCountView.DefaultCountView">COUNT</string>
+    <string name="mainActivity.ViewLastEmotionButton">View Last Emotion</string>
 </resources>

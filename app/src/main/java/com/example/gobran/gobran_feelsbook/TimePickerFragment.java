@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,31 +21,30 @@ public class TimePickerFragment extends DialogFragment {
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final Calendar c = Calendar.getInstance();
-
+    public @NonNull Dialog onCreateDialog(Bundle savedInstanceState) {
         Bundle timeData = getArguments();
-        int hour = timeData.getInt("HOUR",c.get(Calendar.HOUR_OF_DAY));
-        int minute = timeData.getInt("MINUTE",c.get(Calendar.MINUTE));
-        int second = timeData.getInt("SECOND",c.get(Calendar.SECOND));
+        final Calendar c = Calendar.getInstance();
+        int hour = timeData.getInt(this.getString(R.string.timePickerFragment_HourArgument),c.get(Calendar.HOUR_OF_DAY));
+        int minute = timeData.getInt(this.getString(R.string.timePickerFragment_MinuteArgument),c.get(Calendar.MINUTE));
+        int second = timeData.getInt(this.getString(R.string.timePickerFragment_SecondArgument),c.get(Calendar.SECOND));
 
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View numberChoiceView = inflater.inflate(R.layout.fragment_time_picker, null);
-        final NumberPicker hourPicker = numberChoiceView.findViewById(R.id.timePickerFragment_HourPicker);
+        LayoutInflater viewInflater = LayoutInflater.from(getActivity());
+        View timePickerView = viewInflater.inflate(R.layout.fragment_time_picker, null);
+        final NumberPicker hourPicker = timePickerView.findViewById(R.id.timePickerFragment_HourPicker);
         hourPicker.setMaxValue(23);
         hourPicker.setMinValue(0);
         hourPicker.setValue(hour);
-        final NumberPicker minutePicker = numberChoiceView.findViewById(R.id.timePickerFragment_MinutePicker);
+        final NumberPicker minutePicker = timePickerView.findViewById(R.id.timePickerFragment_MinutePicker);
         minutePicker.setMaxValue(59);
         minutePicker.setMinValue(0);
         minutePicker.setValue(minute);
-        final NumberPicker secondPicker = numberChoiceView.findViewById(R.id.timePickerFragment_SecondPicker);
+        final NumberPicker secondPicker = timePickerView.findViewById(R.id.timePickerFragment_SecondPicker);
         secondPicker.setMaxValue(59);
         secondPicker.setMinValue(0);
         secondPicker.setValue(second);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setView(numberChoiceView)
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+        dialogBuilder.setView(timePickerView)
                 .setPositiveButton(R.string.timePickerFragment_ConfirmButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -58,7 +59,7 @@ public class TimePickerFragment extends DialogFragment {
                     }
                 });
 
-        return builder.create();
+        return dialogBuilder.create();
     }
 
     @Override

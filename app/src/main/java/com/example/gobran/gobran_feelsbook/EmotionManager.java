@@ -1,56 +1,95 @@
 package com.example.gobran.gobran_feelsbook;
 
+import android.widget.Toast;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.EnumMap;
-import java.util.Map;
 
 public class EmotionManager {
-    private RecordFile recordFile;
+    private EmotionSaveFile emotionSaveFile;
 
-    private ArrayList<EmotionRecord> records;
-    private ArrayList<Integer> counts;
+    private ArrayList<EmotionRecord> emotionRecords;
+    private ArrayList<Integer> emotionCounts;
+
+    private int lastEmotionId;
 
     public EmotionManager(File filePath) {
-        recordFile = new RecordFile(filePath);
-        records = recordFile.readRecords();
-        if (records == null) {
-            records = new ArrayList<EmotionRecord>();
+        emotionSaveFile = new EmotionSaveFile(filePath);
+        emotionRecords = emotionSaveFile.readEmotionRecords();
+        if (emotionRecords == null) {
+            emotionRecords = new ArrayList<EmotionRecord>();
         }
 
-        counts = new ArrayList<Integer>();
-        for(int i = 0; i < EmotionType.values().length; i++) {
-            counts.add(0);
+        emotionCounts = new ArrayList<Integer>();
+        for(int i = 0; i < Emotion.values().length; i++) {
+            emotionCounts.add(0);
         }
-        for (EmotionRecord record: records) {
-            counts.set(record.getEmotion().toId(),counts.get(record.getEmotion().toId())+1);
+        for (EmotionRecord emotionRecord: emotionRecords) {
+            emotionCounts.set(emotionRecord.getEmotion().getId(),emotionCounts.get(emotionRecord.getEmotion().getId())+1);
+        }
+        recalculateLastEmotionId();
+    }
 
+    public ArrayList<Integer> getEmotionCounts() {
+        return emotionCounts;
+    }
+    public ArrayList<EmotionRecord> getEmotionRecords() {
+        return emotionRecords;
+    }
+
+    public void addEmotionRecord(Emotion emotion, Calendar dateTime, String comment) {
+        lastEmotionId++;
+        emotionCounts.set(emotion.getId(),emotionCounts.get(emotion.getId())+1);
+        emotionRecords.add(calculateRecordIndex(dateTime),new EmotionRecord(lastEmotionId,emotion,dateTime,comment));
+        emotionSaveFile.writeEmotionRecords(emotionRecords);
+
+    }
+    public void editEmotionRecord(int recordId, Emotion emotion, Calendar dateTime, String comment) {
+        emotionRecords.remove(getRecordIndex(recordId));
+        emotionRecords.add(calculateRecordIndex(dateTime),new EmotionRecord(recordId,emotion,dateTime,comment));
+        emotionSaveFile.writeEmotionRecords(emotionRecords);
+    }
+    public void deleteEmotionRecord(int recordId) {
+        int recordIndex = getRecordIndex(recordId);
+        emotionCounts.set(emotionRecords.get(recordIndex).getEmotion().getId(),emotionCounts.get(emotionRecords.get(recordIndex).getEmotion().getId())-1);
+        emotionRecords.remove(recordIndex);
+        if(lastEmotionId == recordId) {
+            recalculateLastEmotionId();
+        }
+        emotionSaveFile.writeEmotionRecords(emotionRecords);
+    }
+
+    private int getRecordIndex(int recordId) {
+        int recordIndex = 0;
+        while(emotionRecords.size() > recordIndex) {
+            if(emotionRecords.get(recordIndex).getId() == recordId) {
+                return recordIndex;
+            }
+            recordIndex++;
+        }
+        return -1;
+    }
+    private int calculateRecordIndex(Calendar dateTime) {
+        int recordIndex = 0;
+        while(emotionRecords.size() > recordIndex && dateTime.compareTo(emotionRecords.get(recordIndex).getDateTime()) < 0) {
+            recordIndex++;
+        }
+        return recordIndex;
+    }
+    private void recalculateLastEmotionId() {
+        lastEmotionId = 0;
+        for (EmotionRecord emotionRecord: emotionRecords) {
+            if (lastEmotionId < emotionRecord.getId()) {
+                lastEmotionId = emotionRecord.getId();
+            }
         }
     }
-
-    public ArrayList<Integer> getCounts() {
-        return counts;
-    }
-    public ArrayList<EmotionRecord> getRecords() {
-        return records;
-    }
-
-    public void addRecord(EmotionType type, Calendar dateTime, String comment) {
-        EmotionRecord record = new EmotionRecord(type, dateTime, comment);
-        int index = 0;
-        while(records.size() > index && dateTime.compareTo(records.get(index).getDateTime()) < 0) {
-            index++;
+    public EmotionRecord getLastCreatedEmotionRecord() {
+        int recordIndex = getRecordIndex(lastEmotionId);
+        if (recordIndex != -1) {
+            return emotionRecords.get(recordIndex);
         }
-        records.add(index,record);
-        recordFile.writeRecords(records);
-        counts.set(type.toId(),counts.get(type.toId())+1);
+        return null;
     }
-
-    public void deleteRecord(int index) {
-        counts.set(records.get(index).getEmotion().toId(),counts.get(records.get(index).getEmotion().toId())-1);
-        records.remove(index);
-        recordFile.writeRecords(records);
-    }
-
 }

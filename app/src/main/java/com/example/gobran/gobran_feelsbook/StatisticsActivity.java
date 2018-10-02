@@ -5,24 +5,22 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 public class StatisticsActivity extends AppCompatActivity {
-    private CountAdapter countAdapter;
+    private EmotionCountAdapter emotionCountAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
-        EmotionManagerController emotionManagerController= ((FeelsBookApp)getApplication()).getEmotionManagerController();
-
-        ListView countList = findViewById(R.id.statisticsActivity_EmotionCountsList);
-        countList.setEnabled(false);
-        countAdapter = new CountAdapter(this,emotionManagerController.getCounts());
-        countList.setAdapter(countAdapter);
-
+        ListView emotionCountList = findViewById(R.id.statisticsActivity_EmotionCountsList);
+        emotionCountList.setEnabled(false);
+        emotionCountAdapter = new EmotionCountAdapter(this,FeelsBookApp.getEmotionManagerController().getEmotionCounts());
+        emotionCountList.setAdapter(emotionCountAdapter);
     }
 
     @Override
-    protected void  onResume() {
+    protected void onResume() {
         super.onResume();
-        countAdapter.notifyDataSetChanged();
+        emotionCountAdapter.notifyDataSetChanged();
     }
 }

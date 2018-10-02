@@ -7,22 +7,22 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class RecordFile {
-    private static final String RECORD_FILENAME = "emotionRecordData.sav";
+public class EmotionSaveFile {
+    private static final String RECORD_FILENAME = "emotionSaveFile.sav";
     private File appFilePath;
 
-    public RecordFile(File path) {
+    public EmotionSaveFile(File path) {
         this.appFilePath = path;
     }
 
     @SuppressWarnings("unchecked")
-    public ArrayList<EmotionRecord> readRecords() {
-        ArrayList<EmotionRecord> records = null;
+    public ArrayList<EmotionRecord> readEmotionRecords() {
+        ArrayList<EmotionRecord> emotionRecords = null;
         try {
             FileInputStream fis = new FileInputStream(new File(appFilePath,RECORD_FILENAME));
             ObjectInputStream ois = new ObjectInputStream(fis);
 
-            records = (ArrayList<EmotionRecord>)ois.readObject();
+            emotionRecords = (ArrayList<EmotionRecord>)ois.readObject();
 
             ois.close();
             fis.close();
@@ -30,15 +30,15 @@ public class RecordFile {
         catch(Exception e) {
             e.printStackTrace();
         }
-        return records;
+        return emotionRecords;
     }
 
-    public void writeRecords(ArrayList<EmotionRecord> records) {
+    public void writeEmotionRecords(ArrayList<EmotionRecord> emotionRecords) {
         try {
             FileOutputStream fos = new FileOutputStream(new File(appFilePath,RECORD_FILENAME));
             ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-            oos.writeObject(records);
+            oos.writeObject(emotionRecords);
 
             oos.close();
             fos.close();

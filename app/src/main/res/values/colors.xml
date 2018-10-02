@@ -6,8 +6,11 @@
 
     <color name="love">#e23c74</color>
     <color name="joy">#ecb11e</color>
-    <color name="surprise">#1981e2</color>
-    <color name="anger">#ffab070a</color>
+    <color name="surprise">#20c717</color>
+    <color name="anger">#ab070a</color>
     <color name="sadness">#05309f</color>
     <color name="fear">#000000</color>
+
+    <color name="viewLastEmotionNone">#979797</color>
+    <color name="viewLastEmotionPresent">#000000</color>
 </resources>

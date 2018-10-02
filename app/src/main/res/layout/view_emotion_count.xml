@@ -2,12 +2,12 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/countView.Base"
+    android:id="@+id/emotionCountView.Base"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/countView.EmotionView"
+        android:id="@+id/emotionCountView.EmotionView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -15,17 +15,17 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:gravity="end"
-        android:text="@string/countView.DefaultEmotionView"
+        android:text="@string/emotionCountView.DefaultEmotionView"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/countView.CountView"
+        app:layout_constraintEnd_toStartOf="@+id/emotionCountView.CountView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/countView.CountView"
+        android:id="@+id/emotionCountView.CountView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -33,11 +33,11 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:gravity="start"
-        android:text="@string/countView.DefaultCountView"
+        android:text="@string/emotionCountView.DefaultCountView"
         android:textSize="24sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/countView.EmotionView"
+        app:layout_constraintBaseline_toBaselineOf="@+id/emotionCountView.EmotionView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/countView.EmotionView" />
+        app:layout_constraintStart_toEndOf="@+id/emotionCountView.EmotionView" />
 
 </android.support.constraint.ConstraintLayout>

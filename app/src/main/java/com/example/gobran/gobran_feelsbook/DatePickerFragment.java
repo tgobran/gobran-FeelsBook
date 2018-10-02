@@ -3,6 +3,7 @@ package com.example.gobran.gobran_feelsbook;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.app.DatePickerDialog;
 import android.widget.DatePicker;
@@ -17,13 +18,12 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final Calendar c = Calendar.getInstance();
-
+    public @NonNull Dialog onCreateDialog(Bundle savedInstanceState) {
         Bundle dateData = getArguments();
-        int year = dateData.getInt("YEAR",c.get(Calendar.YEAR));
-        int month = dateData.getInt("MONTH",c.get(Calendar.MONTH));
-        int day = dateData.getInt("DAY",c.get(Calendar.DAY_OF_MONTH));
+        final Calendar c = Calendar.getInstance();
+        int year = dateData.getInt(this.getString(R.string.datePickerFragment_YearArgument),c.get(Calendar.YEAR));
+        int month = dateData.getInt(this.getString(R.string.datePickerFragment_MonthArgument),c.get(Calendar.MONTH));
+        int day = dateData.getInt(this.getString(R.string.datePickerFragment_DayArgument),c.get(Calendar.DAY_OF_MONTH));
 
         return new DatePickerDialog(getActivity(),this,year,month,day);
     }

@@ -2,7 +2,6 @@ package com.example.gobran.gobran_feelsbook;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.EnumMap;
 
 public class EmotionManagerController {
     private EmotionManager emotionManager;
@@ -11,22 +10,19 @@ public class EmotionManagerController {
         this.emotionManager = em;
     }
 
-    public ArrayList<EmotionRecord> getRecords() {
-        return emotionManager.getRecords();
+    public ArrayList<EmotionRecord> getEmotionRecords() { return emotionManager.getEmotionRecords(); }
+    public ArrayList<Integer> getEmotionCounts() {
+        return emotionManager.getEmotionCounts();
     }
+    public EmotionRecord getLastCreatedEmotionRecord() { return emotionManager.getLastCreatedEmotionRecord(); }
 
-    public ArrayList<Integer> getCounts() {
-        return emotionManager.getCounts();
+    public void addEmotionRecord(Emotion emotion, Calendar dateTime, String comment) {
+        emotionManager.addEmotionRecord(emotion,dateTime,comment);
     }
-
-    public void addRecord(EmotionType type, Calendar dateTime, String comment) {
-        emotionManager.addRecord(type,dateTime,comment);
+    public void editEmotionRecord(int recordId, Emotion emotion, Calendar dateTime, String comment) {
+        emotionManager.editEmotionRecord(recordId,emotion,dateTime,comment);
     }
-    public void editRecord(int index, EmotionType type, Calendar dateTime, String comment) {
-        emotionManager.deleteRecord(index);
-        emotionManager.addRecord(type,dateTime,comment);
-    }
-    public void deleteRecord(int index) {
-        emotionManager.deleteRecord(index);
+    public void deleteEmotionRecord(int recordId) {
+        emotionManager.deleteEmotionRecord(recordId);
     }
 }
