@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class HistoryActivity extends AppCompatActivity {
     private EmotionRecordAdapter emotionRecordAdapter;
 
-    private long lastClickWatcher = 0;
+    private long lastClickWatcher = -2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

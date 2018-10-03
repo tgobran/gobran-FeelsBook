@@ -41,4 +41,5 @@
     <string name="emotionCountView.DefaultEmotionView">EMOTION</string>
     <string name="emotionCountView.DefaultCountView">COUNT</string>
     <string name="mainActivity.ViewLastEmotionButton">View Last Emotion</string>
+    <string name="historyActivity.HintView">Tap a record to view its details</string>
 </resources>

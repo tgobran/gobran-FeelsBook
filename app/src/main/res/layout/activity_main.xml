@@ -94,19 +94,19 @@
         android:textColor="@color/viewLastEmotionNone"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mainActivity.HintsView"
+        app:layout_constraintBottom_toTopOf="@+id/mainActivity.HintView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/mainActivity.HintsView"
+        android:id="@+id/mainActivity.HintView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="@string/mainActivity.HintView"
         android:textSize="14sp"

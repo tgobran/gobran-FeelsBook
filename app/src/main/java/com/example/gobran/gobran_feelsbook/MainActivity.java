@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements CommentWriterFrag
 
     private Emotion emotionToAdd;
 
-    private long lastClickWatcher = 0;
+    private long lastClickWatcher = -2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
