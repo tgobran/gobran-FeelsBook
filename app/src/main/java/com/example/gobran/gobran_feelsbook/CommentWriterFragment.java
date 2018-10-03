@@ -9,9 +9,9 @@
  *      Handles the creation of a DialogFragment on screen that will allow the 
  *      editing and creation of comments for emotion records.
  * Rationale:
- *      Seperates the operation of creating comments from specific editText views
- *      in specific activities, allows any class that implements its method to
- *      recieve a comment be able to allow comment editing easily
+ *      Separates the operation of creating comments from specific editText views
+ *      in specific activities, allows any class that implements its interface to
+ *      receive a comment be able to allow comment editing easily
  *      In this sense it allows for greater modularity, with it being possible
  *      to reuse this code in other projects with commenting.
  * Outstanding Issues:
@@ -34,28 +34,29 @@ import android.widget.EditText;
 public class CommentWriterFragment extends DialogFragment {
     CommentWriterFragment.OnCommentSetListener mCallback;
 
-    //Interface a implementaing class must support, so that the returned comment will be handled 
+    // Interface an implementing class must support, so that the returned comment will be handled
     public interface OnCommentSetListener {
         public void onCommentSet(String comment);
     }
 
-    //Creates the actual dialog residing within the fragment
+    // Creates the actual dialog residing within the fragment
     @Override
     public @NonNull Dialog onCreateDialog(Bundle savedInstanceState) {
         
-        //Grabs the view containing the comment editor textEdit, places that as the dialog view
+        // Grabs the view containing the comment editor textEdit, places that as the dialog view
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View commentWriterView = inflater.inflate(R.layout.fragment_comment_writer, null);
  
-        //Changes the editText object within the view to present any pre-existing comment
-        //Such comments are passed to the commentWriter via an argument
+        // Changes the editText object within the view to present any pre-existing comment
+        // Such comments are passed to the commentWriter via an argument
         final EditText commentEditor = commentWriterView.findViewById(R.id.commentWriterFragment_EditComment);
         Bundle commentData = getArguments();
         if (commentData != null) {
             commentEditor.setText(commentData.getString(this.getString(R.string.commentWriterFragment_CommentArgument),""));
         }
 
-        //Builds the dialog using the view provided, sets the positive and negative return buttons to return the sttring or nothing 
+        // Builds the dialog using the view provided, sets the positive and negative return buttons
+        // to return the string or to simply cancel
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         dialogBuilder.setView(commentWriterView)
                 .setPositiveButton(R.string.commentWriterFragment_ConfirmButton, new DialogInterface.OnClickListener() {
@@ -68,16 +69,16 @@ public class CommentWriterFragment extends DialogFragment {
                 .setNegativeButton(R.string.commentWriterFragment_CancelButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mCallback.onCommentSet(null);
+                        CommentWriterFragment.this.getDialog().cancel();
                     }
                 });
         
-        //Returns the created dialog with its proper editText and its buttons established
+        // Returns the created dialog with its proper editText and its buttons established
         return dialogBuilder.create();
     }
 
-    //Handles the fragment being attached to an activity, ensures that it knows its parentContext which will recieve the
-    //resulting comments that are written
+    // Handles the fragment being attached to an activity, ensures that it knows its parentContext
+    // which will receive the resulting comments that are written
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
