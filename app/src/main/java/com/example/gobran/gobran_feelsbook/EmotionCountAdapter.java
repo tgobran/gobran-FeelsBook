@@ -45,9 +45,11 @@ public class EmotionCountAdapter extends ArrayAdapter<Integer> {
     @Override
     public @NonNull View getView(int position, View convertView,@NonNull ViewGroup parent) {
 
-        // Allows recycling of views for better performance
+        // Allows recycling of views for better performance, no click functionality for counts so
+        // they are also disabled
         if(convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.view_emotion_count,parent,false);
+            convertView.setEnabled(false);
         }
 
         // Finds the count for the given position in the adapter and the emotion connected to that

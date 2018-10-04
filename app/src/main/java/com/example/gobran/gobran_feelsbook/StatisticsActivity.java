@@ -37,7 +37,6 @@ public class StatisticsActivity extends AppCompatActivity {
         // Using the controller retrieves the ArrayList of emotion counts and creates an adapter
         // for them that will display them in the statistic activities listView
         ListView emotionCountList = findViewById(R.id.statisticsActivity_EmotionCountsList);
-        emotionCountList.setEnabled(false);
         emotionCountAdapter = new EmotionCountAdapter(this,FeelsBookApp.getEmotionManagerController().getEmotionCounts());
         emotionCountList.setAdapter(emotionCountAdapter);
     }

@@ -50,9 +50,6 @@ public class EmotionManager {
         // data for the application
         emotionSaveFile = new EmotionSaveFile(filePath);
         emotionRecords = emotionSaveFile.readEmotionRecords();
-        if (emotionRecords == null) {
-            emotionRecords = new ArrayList<EmotionRecord>();
-        }
 
         // The creation of the list of counts for each emotion type, counts are based on any
         // saved emotions found.

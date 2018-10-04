@@ -22,6 +22,7 @@ package com.example.gobran.gobran_feelsbook;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -44,16 +45,17 @@ public class EmotionSaveFile {
         // Attempts to read any present emotion records file, reads it as the entire arrayList
         // being saved as a serializable ArrayList so that only one object must be read
         try {
-            FileInputStream fis = new FileInputStream(new File(appFilePath,RECORD_FILENAME));
+            FileInputStream fis = new FileInputStream(new File(appFilePath, RECORD_FILENAME));
             ObjectInputStream ois = new ObjectInputStream(fis);
 
-            emotionRecords = (ArrayList<EmotionRecord>)ois.readObject();
+            emotionRecords = (ArrayList<EmotionRecord>) ois.readObject();
 
             ois.close();
             fis.close();
-        }
-        catch(Exception e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+          emotionRecords = new ArrayList<EmotionRecord>();
+        } catch(Exception e) {
+            throw new RuntimeException("Error reading records");
         }
 
         return emotionRecords;
@@ -74,7 +76,7 @@ public class EmotionSaveFile {
             fos.close();
 
         } catch(Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error writing records");
         }
     }
 }
